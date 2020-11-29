@@ -1,0 +1,5 @@
+{
+  "name": "RTL_433 to MQTT proxy",
+  "url": "https://github.com/nebulans/hassio-433-mqtt",
+  "maintainer": "Tim Davies"
+}
