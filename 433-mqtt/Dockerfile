@@ -32,7 +32,7 @@ RUN apk add --no-cache python3 py3-virtualenv && \
     virtualenv venv
 
 COPY requirements.txt /requirements.txt
-RUN /venv/bin/pip install /requirements.txt
+RUN /venv/bin/pip install -r /requirements.txt
 
 COPY proxy /src
 
