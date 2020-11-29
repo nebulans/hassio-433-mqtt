@@ -1,0 +1,55 @@
+{
+  "name": "RTL_433 to MQTT proxy",
+  "version": "0.0.1",
+  "slug": "433-mqtt",
+  "description": "Proxy 433MHz transmissions from rtl_433 to an MQTT broker",
+  "url": "https://github.com/nebulans/hassio-433-mqtt",
+  "startup": "before",
+  "boot": "auto",
+  "map": ["config:rw", "ssl"],
+  "devices": ["/dev/bus/usb:/dev/bus/usb:rwm"],
+  "host_network": "False",
+  "arch": [
+    "aarch64",
+    "amd64",
+    "armv7",
+    "i386"
+  ],
+  "options":
+  {
+    "mqtt": {
+      "host": "hassio.local",
+      "user": "",
+      "password": "",
+      "topic_base": "homeassistant/sensor/433"
+    },
+    "devices": [
+      {
+        "usb_device": "",
+        "frequency": 433920000,
+        "gain": 60,
+        "frequency_offset": 0,
+        "protocols": []
+
+      }
+    ]
+  },
+  "schema":
+  {
+    "mqtt": {
+      "host": "str",
+      "user": "str",
+      "password": "str",
+      "topic_base": "str"
+    },
+    "devices": [
+      {
+        "usb_device": "str",
+        "frequency": "int",
+        "gain": "int",
+        "frequency_offset": "int",
+        "protocols": ["str?"]
+      }
+    ]
+   }
+}
