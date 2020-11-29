@@ -7,7 +7,7 @@ MAINTAINER Tim Davies
 
 LABEL Description="Run rtl_433 to monitor 433MHz events and proxy to MQTT server"
 
-RUN apk add --no-cache --virtual build-deps alpine-sdk cmake git libusb libusb-dev && \
+RUN apk add --no-cache --virtual build-deps alpine-sdk cmake git libusb-dev && \
     mkdir /tmp/src && \
     cd /tmp/src && \
     git clone git://git.osmocom.org/rtl-sdr.git && \
@@ -26,7 +26,8 @@ RUN apk add --no-cache --virtual build-deps alpine-sdk cmake git libusb libusb-d
     make && \
     make install && \
     apk del build-deps && \
-    rm -r /tmp/src
+    rm -r /tmp/src && \
+    apk add --no-cache libusb
 
 RUN apk add --no-cache python3 py3-virtualenv && \
     virtualenv venv
@@ -36,4 +37,4 @@ RUN /venv/bin/pip install -r /requirements.txt
 
 COPY proxy /src
 
-CMD cp -r /config/proxy /src && exec /src/proxy.py $CONFIG_PATH
+CMD /venv/bin/python /src/proxy.py /data/options.json
