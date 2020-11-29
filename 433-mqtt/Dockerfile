@@ -26,8 +26,9 @@ RUN apk add --no-cache --virtual build-deps alpine-sdk cmake git libusb-dev && \
     make && \
     make install && \
     apk del build-deps && \
-    rm -r /tmp/src && \
-    apk add --no-cache libusb python3 py3-virtualenv && \
+    rm -r /tmp/src
+
+RUN apk add --no-cache libusb python3 py3-virtualenv && \
     virtualenv venv
 
 COPY requirements.txt /requirements.txt
