@@ -2,7 +2,7 @@
 class RTL433Command(object):
     binary = 'rtl_433'
 
-    def __init__(self, frequency, frequency_offset, gain, protocols, usb_device=None):
+    def __init__(self, frequency, frequency_offset, gain, protocols, usb_device='0'):
         self.frequency = frequency
         self.frequency_offset = frequency_offset
         self.gain = gain
@@ -12,6 +12,7 @@ class RTL433Command(object):
     def get_command(self):
         cmd = [
             self.binary,
+            '-d', self.usb_device,
             '-F', 'json',
             '-f', self.frequency,
             '-p', self.frequency_offset,

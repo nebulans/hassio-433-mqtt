@@ -59,7 +59,8 @@ def main(argv):
     args = parser.parse_args(argv)
     with open(args.config_path) as f:
         config = json.load(f)
-    print(config)
+    application = ProxyApplication(config)
+    application.run()
 
 
 if __name__ == '__main__':
