@@ -12,11 +12,10 @@ class RTL433Command(object):
     def get_command(self):
         cmd = [
             self.binary,
-            '-d', self.usb_device,
             '-F', 'json',
-            '-f', self.frequency,
-            '-p', self.frequency_offset,
-            '-g', self.gain
+            '-f', str(self.frequency),
+            '-p', str(self.frequency_offset),
+            '-g', str(self.gain)
         ]
         if self.usb_device:
             cmd.extend(['-d', self.usb_device])
