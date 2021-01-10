@@ -37,4 +37,4 @@ RUN /venv/bin/pip install -r /requirements.txt
 
 COPY proxy /src
 
-CMD /venv/bin/python /src/proxy.py /data/options.json
+CMD /venv/bin/python -m src.proxy /data/options.json
