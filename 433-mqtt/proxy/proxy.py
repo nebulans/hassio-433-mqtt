@@ -51,6 +51,7 @@ class ProxyApplication(object):
         self.connect_outputs()
         self.start_listeners()
         self.processor.start()
+        self.processor.join()
 
 
 def main(argv):
