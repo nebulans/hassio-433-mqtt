@@ -1,6 +1,6 @@
 {
   "name": "RTL_433 to MQTT proxy",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "slug": "433-mqtt",
   "description": "Proxy 433MHz transmissions from rtl_433 to an MQTT broker",
   "url": "https://github.com/nebulans/hassio-433-mqtt",
@@ -8,6 +8,7 @@
   "boot": "auto",
   "map": ["config:rw", "ssl"],
   "devices": ["/dev/bus/usb:/dev/bus/usb:rwm"],
+  "usb": true,
   "host_network": "False",
   "arch": [
     "aarch64",
