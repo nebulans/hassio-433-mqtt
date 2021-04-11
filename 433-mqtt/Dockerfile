@@ -7,7 +7,7 @@ MAINTAINER Tim Davies
 
 LABEL Description="Run rtl_433 to monitor 433MHz events and proxy to MQTT server"
 
-RUN apk-add --no-cache rtl-sdr librtlsdr-dev
+RUN apk add --no-cache rtl-sdr librtlsdr-dev
 
 RUN apk add --no-cache --virtual build-deps alpine-sdk cmake git libusb-dev && \
     mkdir /tmp/src && \
